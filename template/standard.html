@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+	<title>Shiftswap | {% block title %}{% endblock %}</title>
+	<meta charset="UTF-8">
+
+	<link rel="icon" type="image/png"  href="img/shiftswap-logo.png">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+	integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+	crossorigin="anonymous">
+	{% if datepicker %}<link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.standalone.min.css">{% endif %}
+	
+
+	<link rel="stylesheet" href="css/main.css">
+	{% block head %}{% endblock %}
+</head>
+
+
+
+
+
+
+<body>
+	{% include "template/header.html" %}
+	{% block content %}{% endblock %}
+	{% include "template/footer.html" %}
+
+
+
+
+	<!-- Polyfills -->
+	<script>
+	if (!Array.of) {
+		Array.of = function() {
+			return Array.prototype.slice.call(arguments);
+		};
+	}
+	</script>
+
+
+	<!--.........  Scripts - Vendor  ..................-->
+	<!-- Modernizr -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<!-- Bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+		crossorigin="anonymous"></script>
+	{% if angular %}
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>{% endif %}
+	{% if underscore %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>{% endif %}
+	{% if moment %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>{% endif %}
+	{% if datepicker %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>{% endif %}
+	{% if fuzzyset %}
+		<script src="js/vendor/fuzzyset.min.js"></script>{% endif %}
+	
+
+	<!--...........  Scripts - Local Fallbacks  ..........-->
+	<script>
+		function injectScript(file){document.write('<script src="js/vendor/'+file+'.js><\/script>');}
+		{% if true       %}window.jQuery               || injectScript('jquery-2.2.3.min');{% endif %}
+		{% if true       %}window.jQuery.fn.modal      || injectScript('bootstrap.min');{% endif %}
+		{% if angular    %}window.angular              || injectScript('angular.min');{% endif %}
+		{% if underscore %}window._                    || injectScript('underscore.min');{% endif %}
+		{% if moment     %}window.moment               || injectScript('moment.min');{% endif %}
+		{% if datepicker %}window.jQuery.fn.datepicker || injectScript('bootstrap-datepicker.min');{% endif %}
+		{% if fuzzyset   %}window.FuzzySet             || injectScript('fuzzyset.min');{% endif %}
+
+	</script>
+
+
+	<!--.........  Scripts - Self    ..................-->
+	{% block script %}
+	{% endblock %}
+
+</body>

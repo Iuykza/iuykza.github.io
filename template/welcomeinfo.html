@@ -1,0 +1,55 @@
+<section class="container" id="welcomeinfo">
+	<div ng-hide="progress">
+		<hgroup>
+			<h1>Your schedule at a glance</h1>
+			<h1 class="tight subtle">
+				<span>Hello {{name}}!</span>
+				<small><a href="">(not you?)</a></small>
+			</h1>
+		</hgroup>
+
+		<div class="row">
+
+			<div class="col-sm-4">
+				<div class="title">
+					<h2>Today</h2>
+					<p>{{unix.dayName(today)+' '+unix.date(today)}}</p>
+				</div>
+				<div ng-show="shiftToday">
+					<p>you work</p>
+					<p class="tight em">{{shiftToday}}</p>
+
+					<p ng-show="untilStep===1">And you start</p>
+					<p ng-show="untilStep===2">And your break is</p>
+					<p ng-show="untilStep===3">And your break ends</p>
+					<p ng-show="untilStep===4">And you clock-out</p>
+					<p class="tight em">{{untilClock}}</p>
+				</div>
+				<div ng-hide="shiftToday">
+					<p>you are off.</p>
+				</div>				
+			</div>
+			
+
+			<div class="col-sm-4" id="tomorrow">
+				<div class="title">
+					<h2>Tomorrow</h2>
+					<p>{{unix.dayName(today, 1)+' '+unix.date(today, 1)}}</p>
+				</div>
+				<span ng-show="shiftTomorrow">your next shift is in {{shiftTomorrow}}.</span>
+				<span ng-hide="shiftTomorrow">you are off.</span>
+			</div>
+
+			<div class="col-sm-2">
+				<div class="title">
+					<h2>View full</h2>
+					<p>Shows yourself on schedule.</p>
+					<div class="glyphicon glyphicon-share-alt"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-show="progress">
+		<p>Loading...</p>
+	</div>
+</section>

@@ -1,0 +1,96 @@
+<section id="bigcheese">
+	<!--.................. Month View .....................-->
+	<table class="table" ng-show="timespan===1">
+		<thead>
+			<tr>
+				<th>Fri</th>
+				<th>Sat</th>
+				<th>Sun</th>
+				<th>Mon</th>
+				<th>Tue</th>
+				<th>Wed</th>
+				<th>Thu</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+
+
+
+
+
+
+
+	<!--.................. Week View ......................-->
+	<table class="table" ng-show="timespan===2">
+		<thead>
+			<tr>
+				<td>&nbsp;</td>
+				<td ng-repeat="i in [0,1,2,3,4,5,6]">
+					<div>{{ unix.dayName(today, i) }}</div>
+					<div>{{ unix.date(today, i) }}</div>
+					<div>{{ unix.add(today, i) }}</div>
+				</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="render in list.render">
+				<td class="{{user.role(render)}}">
+					<abbr title="{{user.start(render)}}">
+						<div class="{{user.start(render)}}">
+							{{user.IDfromName(user.name(render))}}
+						</div>
+						<div>{{render}}</div>
+					</abbr>
+				</td>
+				<td ng-repeat="n in [0,1,2,3,4,5,6]" class="{{ data.class(render, today, n)}}">
+					<abbr
+					title="{{data.detail(render, today, n)}}"
+					>
+						<span>{{data.schedule(render, today, n)}}</span>
+					</abbr>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+
+
+	<!--.................. Day View ......................-->
+	<table class="table" ng-show="timespan===3" style="max-width: 900px; margin: 0 auto;">
+		<thead>
+			<tr>
+				<th colspan="3" style="text-align:center; font-size: 1.45em;">
+					<span>{{ unix.dayName(today) }}<span>
+					<small>{{ unix.date(today, i) }}</small>
+				</th>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				<th>Morning</th>
+				<th>Evening</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="render in list.render">
+				<td class="{{user.role(render)}}">
+					<abbr title="{{user.start(render)}}">
+						<div class="{{user.start(render)}}">
+							{{user.IDfromName(user.name(render))}}
+						</div>
+						<div>{{render}}</div>
+					</abbr>
+				</td>
+
+				<td ng-hide="data.isMorning(render,today,0)">&nbsp;</td>
+				<td class="{{data.class(render, today, n)}}"><span>{{data.schedule(render, today, 0)}}</span></td>
+				<td ng-show="data.isMorning(render,today,0)">&nbsp;</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

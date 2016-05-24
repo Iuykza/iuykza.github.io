@@ -1,1 +1,43 @@
-#directory-map{position:relative;margin:1em 0}#directory-map p{margin:0}#directory-map p a{background:#fffdcd}#directory-map small{position:absolute;left:280px;margin-top:.35em}#directory-map div,#directory-map span{display:block;padding:0 .25em;margin:.1em 2em}#directory-map span a{background:rgba(60,255,255,.2)}#directory-map div{border-left:1px solid gray;border-radius:10px}#directory-map a{color:#333}#directory-map a:hover{text-decoration:none}
+/*** Labels ***/
+#directory-map{
+	position: relative;
+	margin: 1em 0;
+}
+#directory-map p{
+	margin: 0;
+	
+} 
+#directory-map p a{
+	background: #fffdcd;
+}
+#directory-map small{
+
+	position: absolute;
+	left: 280px;
+	margin-top: .35em;
+}
+
+
+/* Folder and files */
+#directory-map div, #directory-map span{
+	display: block;
+
+	padding: 0 .25em;
+	margin: .1em 2em;
+}
+
+#directory-map span a{
+	background: rgba(60,255,255, .2);
+}
+
+#directory-map div{
+	border-left: 1px solid gray; /* brackets on left side*/
+	border-radius: 10px;
+}
+
+#directory-map a{
+	color: rgb(51,51,51);
+}
+#directory-map a:hover{
+	text-decoration: none;
+}

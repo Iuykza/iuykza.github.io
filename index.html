@@ -1,1 +1,138 @@
-<!DOCTYPE html><head><title>Shiftswap | Home</title><meta charset="UTF-8"><link rel="icon" type="image/png" href="img/shiftswap-logo.png"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"><link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.standalone.min.css"><link rel="stylesheet" href="css/main.css"><meta name="description" content="Shiftswap is an online shift trading application for Cinemark 348 employees.  It makes it easier to trade shifts with each other, view your work schedule, and see a daily breakdown."><meta name="keywords" content="shiftswap, shift, swap, cinemark, 348, trade, sanity"><link rel="stylesheet" href="css/index.css"></head><body><header><section class="jumbotron logo"><div><h1>Shiftswap</h1><p>Makes trading shifts easier for Cinemark employees</p></div></section><section class="blog-masthead"><div class="container"><nav class="blog-nav"><a class="blog-nav-item active" href="index.html">Home</a> <a class="blog-nav-item" href="whats-this.html">What's this?</a> <a class="blog-nav-item" href="stats.html">Statistics</a> <a class="blog-nav-item" href="info.html">Edit info</a> <span>|</span> <a class="blog-nav-item" href="news.html">News</a> <a class="blog-nav-item" href="starbucks.html">Learn Starbucks</a> <a class="blog-nav-item" href="movies.html">Movies</a></nav></div></section></header><section ng-app="scheduleApp"><welcomeinfo></welcomeinfo><section class="container" id="legend"><h2>Legend</h2><div class="row"><ul class="col-md-2"><li class="user-box">Box office</li><li class="user-con">Concession</li><li class="user-ush">Usher</li><li class="user-mis">Misc</li></ul><ul class="col-md-2"><li class="time-give">Given shift<sup>†</sup></li><li class="time-take">Taken shift<sup>†</sup></li><li class="time-disp-give">Shift for grabs</li><li class="time-disp-take">Shift wanted</li></ul><ul class="col-md-3"><li class="user-give">Unavailable for shifts</li><li class="user-take">Wanted shifts</li></ul><ul class="col-md-2"><li class="user-year-1">1 year</li><li class="user-year-3">3 years</li><li class="user-year-5">5+ years</li></ul></div></section><h2 style="text-align: center">Big cheese schedule</h2><section class="container" id="navigation"><ol class="nav nav-pills"><li role="presentation" ng-class="{active: timespan==1}" ng-click="timespan=1"><a href>Month</a></li><li role="presentation" ng-class="{active: timespan==2}" ng-click="timespan=2"><a href>Week </a></li><li role="presentation" ng-class="{active: timespan==3}" ng-click="timespan=3"><a href>Day </a></li><span id="sandbox-container" style="display:inline-block; margin-top:.2em"><span class="input-group date" style="width: 200px"><input ng-bind="today" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span></span></span></ol><div class="nav-ticks"><label><span>Show breaks</span> <input type="checkbox" value="show-breaks"></label><label><span>Show detail</span> <input ng-click="detailEnable=!detailEnable" type="checkbox"></label><label><span>24-hour format</span> <input ng-click="militaryTimeEnable=!militaryTimeEnable" type="checkbox"></label></div><div class="nav-buttons"><button><span>Give shift</span> <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></button> <button><span>Take shift</span> <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button> <button><span>Print</span> <span class="glyphicon glyphicon-print" aria-hidden="true"></span></button><div class="row"><button><span>Back</span> <span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> <button><span>Forward</span> <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button></div></div></section><tabledom></tabledom></section><footer class="jumbotron"><div class="row"><section class="col-md-2"><h2>Website</h2><ul><li><a href="about.html">About</a></li><li><a href="costs.html">Costs</a></li><li><a href="contact.html">Contact me</a></li></ul></section><section class="col-md-2"><h2>Developers</h2><ul><li><a href="develop.html">Getting started</a></li><li><a href="api.html">API</a></li><li><a href="https://github.com/Iuykza/Shiftswap">GitHub</a></li><li><a href="#">Worklog</a></li></ul></section><section class="col-md-2"><h2>Legal</h2><ul><li><a href="policy.html">Private policy</a></li><li><a href="content.html">Content use</a></li></ul></section></div></footer><script>Array.of||(Array.of=function(){return Array.prototype.slice.call(arguments)})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script><script src="js/vendor/fuzzyset.min.js"></script><script>function injectScript(i){document.write('<script src="js/vendor/'+i+".js><\/script>")}window.jQuery||injectScript("jquery-2.2.3.min"),window.jQuery.fn.modal||injectScript("bootstrap.min"),window.angular||injectScript("angular.min"),window._||injectScript("underscore.min"),window.moment||injectScript("moment.min"),window.jQuery.fn.datepicker||injectScript("bootstrap-datepicker.min"),window.FuzzySet||injectScript("fuzzyset.min")</script><script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script><script>angular.module("scheduleApp",["ngRoute"]),$(function(){$("#sandbox-container .input-group.date").datepicker({weekStart:4,clearBtn:!0,todayBtn:"linked",orientation:"auto",daysOfWeekHighlighted:"0,5,6"})})</script><script src="js/scheduleapp.js"></script></body>
+{% extends "template/standard.html" %}
+
+{% block title %}Home{% endblock %}
+{% set home = true %}
+
+{% block head %}
+	<meta name="description" content="Shiftswap is an online shift trading application for Cinemark 348 employees.  It makes it easier to trade shifts with each other, view your work schedule, and see a daily breakdown.">
+	<meta name="keywords" content="shiftswap, shift, swap, cinemark, 348, trade, sanity">
+	<link rel="stylesheet" href="css/index.css">
+{% endblock %}
+
+
+{% block content %}
+<section ng-app="scheduleApp">
+	<welcomeinfo></welcomeinfo>
+
+	<section class="container" id="legend">
+		<h2>Legend</h2>
+		<div class="row">
+			<ul class="col-md-2">
+				<li class="user-box">Box office</li>
+				<li class="user-con">Concession</li>
+				<li class="user-ush">Usher</li>
+				<li class="user-mis">Misc</li>
+			</ul>
+
+			<ul class="col-md-2">
+				<li class="time-give">Given shift<sup>&#8224;</sup></li>
+				<li class="time-take">Taken shift<sup>&#8224;</sup></li>
+				<li class="time-disp-give">Shift for grabs</li>
+				<li class="time-disp-take">Shift wanted</li>
+			</ul>
+
+			<ul class="col-md-3">
+				<li class="user-give">Unavailable for shifts</li>
+				<li class="user-take">Wanted shifts</li>
+			</ul>
+
+			<ul class="col-md-2">
+				<li class="user-year-1">1 year</li>
+				<li class="user-year-3">3 years</li>
+				<li class="user-year-5">5+ years</li>
+			</ul>
+		</div>
+	</section>
+
+
+
+
+
+	<h2 style="text-align: center">Big cheese schedule</h2>
+	<section class="container" id="navigation">
+		<ol class="nav nav-pills">
+			<li role="presentation" ng-class="{active: timespan==1}" ng-click="timespan=1"><a href>Month</a></li>
+			<li role="presentation" ng-class="{active: timespan==2}" ng-click="timespan=2"><a href>Week </a></li>
+			<li role="presentation" ng-class="{active: timespan==3}" ng-click="timespan=3"><a href>Day </a></li>
+
+			<span id="sandbox-container" style="display:inline-block; margin-top:.2em;">
+				<span class="input-group date" style="width: 200px">
+					<input ng-bind="today" type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+				</span>
+			</span>
+		</ol>
+
+		<div class="nav-ticks">
+			<label>
+				<span>Show breaks</span>
+				<input type="checkbox" value="show-breaks">
+			</label>
+
+			<label>
+				<span>Show detail</span>
+				<input ng-click="detailEnable=!detailEnable" type="checkbox">
+			</label>
+
+			<label>
+				<span>24-hour format</span>
+				<input ng-click="militaryTimeEnable=!militaryTimeEnable" type="checkbox">
+			</label>
+		</div>
+
+		<div class="nav-buttons">
+			<button>
+				<span>Give shift</span>
+				<span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+			</button>
+			<button>
+				<span>Take shift</span>
+				<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+			</button>
+			<button>
+				<span>Print</span>
+				<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+			</button>
+
+
+			<div class="row">
+				<button>
+					<span>Back</span>
+					<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+				</button>
+				<button>
+					<span>Forward</span>
+					<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<tabledom>
+	</tabledom>
+</section>
+{% endblock %}
+
+
+{% set angular = true %}
+{% set underscore = true %}
+{% set moment = true %}
+{% set datepicker = true %}
+{% set fuzzyset = true %}
+{% block script %}
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+	<script>
+	angular.module('scheduleApp',['ngRoute']);
+	
+	$(function(){
+		$('#sandbox-container .input-group.date').datepicker({
+			weekStart: 4,
+			clearBtn: true,
+			todayBtn: "linked",
+			orientation: "auto",
+			daysOfWeekHighlighted: "0,5,6"
+		});
+	});
+
+	</script>
+	<script src="js/scheduleapp.js"></script>
+{% endblock %}

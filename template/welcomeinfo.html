@@ -8,6 +8,8 @@
 			</h1>
 		</hgroup>
 
+		
+
 		<div class="row">
 
 			<div class="col-sm-4">
@@ -15,15 +17,30 @@
 					<h2>Today</h2>
 					<p>{{unix.dayName(today)+' '+unix.date(today)}}</p>
 				</div>
+
+				<div ng-show="currentTime">
+						<p>it is now</p>
+						<p class="tight em">{{currentTime}}</p>
+				</div>
+
 				<div ng-show="shiftToday">
 					<p>you work</p>
 					<p class="tight em">{{shiftToday}}</p>
 
-					<p ng-show="untilStep===1">And you start</p>
-					<p ng-show="untilStep===2">And your break is</p>
-					<p ng-show="untilStep===3">And your break ends</p>
-					<p ng-show="untilStep===4">And you clock-out</p>
-					<p class="tight em">{{untilClock}}</p>
+					<p ng-show="breaks.length===0">with no break</p>
+					<p ng-show="breaks.length===1">with a break at</p>
+					<p ng-show="breaks.length>= 2">with breaks at</p>
+					<p class="tight em" ng-show="breaks.length>0" ng-repeat="b in breaks">{{b}}</p>
+
+
+					<p ng-show="untilStep==='start'">and you start</p>
+					<p ng-show="untilStep==='br-start'">and your break is</p>
+					<p ng-show="untilStep==='br-end'">and your break ends</p>
+					<p ng-show="untilStep==='end'">and you clock-out</p>
+					<p class="tight em" ng-hide="untilStep==='afterhour'">
+						in
+						<abbr title="{{untilClock.detail}}">{{untilClock.str}}</abbr>
+					</p>
 				</div>
 				<div ng-hide="shiftToday">
 					<p>you are off.</p>

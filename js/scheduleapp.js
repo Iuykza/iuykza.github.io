@@ -1,7 +1,7 @@
 angular.module('scheduleApp')
 .service('ajaxService', ['$http', function($http){
-	//var server = 'http://api.shiftswapsanity.xyz/v1/';
-	var server = 'http://localhost:3000/v1/';
+	var server = 'http://api.shiftswapsanity.xyz/v1/';
+	// var server = 'http://localhost:3000/v1/';
 
 	this.getUsers = function(callback){
 		return $http.get(server+'users')

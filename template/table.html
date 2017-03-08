@@ -25,33 +25,44 @@
 	<!--.................. Week View ......................-->
 	<table class="table" ng-show="timespan===2">
 		<thead>
+			<!-- Days of the week across top -->
 			<tr>
 				<td>&nbsp;</td>
 				<td ng-repeat="i in [0,1,2,3,4,5,6]">
 					<div>{{ unix.dayName(today, i) }}</div>
 					<div>{{ unix.date(today, i) }}</div>
-					<div>{{ unix.add(today, i) }}</div>
 				</td>
 			</tr>
 		</thead>
 
 		<tbody>
-			<tr ng-repeat="render in list.render">
-				<td class="{{user.role(render)}}">
+			<!-- each user row -->
+			<tr ng-repeat="user in list.userInfos">
+				<!-- First TD: shows the users -->
+				<!-- <td class="{{user.role(render)}}"> -->
+				<td>
 					<abbr title="{{user.start(render)}}">
 						<div class="{{user.start(render)}}">
-							{{user.IDfromName(user.name(render))}}
+							{{user.name}}
 						</div>
-						<div>{{render}}</div>
 					</abbr>
 				</td>
-				<td ng-repeat="n in [0,1,2,3,4,5,6]" class="{{ data.class(render, today, n)}}">
+
+				<!-- Proceeding TDs: schedule time data per each day -->
+				<td ng-repeat="n in [0,1,2,3,4,5,6]">
+					<span ng-init="userDay = 'ched.getUserShift(today,user.uid)'">
+					{{formatTime(ched.getUserShift(today, n, user.uid), militaryTimeEnable)}}<br>
+					{{ched.getUserShift(today, n, user.uid).detail[0]}}<br>
+					</span>
+					<!-- {{list.userDatas}} -->
+				</td>
+				<!-- <td ng-repeat="n in [0,1,2,3,4,5,6]" class="{{ data.class(render, today, n)}}">
 					<abbr
 					title="{{data.detail(render, today, n)}}"
 					>
 						<span>{{data.schedule(render, today, n)}}</span>
 					</abbr>
-				</td>
+				</td> -->
 			</tr>
 		</tbody>
 	</table>
@@ -78,6 +89,7 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="render in list.render">
+
 				<td class="{{user.role(render)}}">
 					<abbr title="{{user.start(render)}}">
 						<div class="{{user.start(render)}}">
